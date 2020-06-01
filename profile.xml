@@ -1,0 +1,71 @@
+<profile>
+    <configuration>
+        <theme-url>http://themeurl.com</theme-url>
+    </configuration>
+    <about>
+        <p>
+            Hi! Thanks for stopping by. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+            This is another paragraph. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+        </p>
+    </about>
+    <photo-url>photo.jpg</photo-url>
+    <basic-info>
+        <name>Bob Smith</name>
+        <role>Front-End Developer</role>
+        <dob>01/10/1981</dob>
+        <gender>Male</gender>
+        <address>
+            <post-code>XYZ123</post-code>
+            <city>Exeter</city>
+            <region>Devon</region>
+            <country>UK</country>
+        </address>
+        <phone>+44 7738 111111</phone>
+        <email>bob@mail.com</email>
+        <website>http://website.com</website>
+        <employment-status>Employed</employment-status>
+    </basic-info>
+    <skills>
+        <skill>HTML</skill>
+        <skill>CSS</skill>
+        <skill>JavaScript</skill>
+    </skills>
+    <work-history>
+        <section>
+            <from>2018</from>
+            <to>To Date</to>
+            <company-name>Company Name</company-name>
+            <url>http://website.com</url>
+            <job-description>Front-end developer</job-description>
+        </section>
+        <section>
+            <from>2017</from>
+            <to>2018</to>
+            <company-name>Company Name</company-name>
+            <url>http://website.com</url>
+            <job-description>Front-end developer</job-description>
+        </section>
+    </work-history>
+    <education>
+        <section>
+            <institution>Some University</institution>
+            <from>2003</from>
+            <to>2006</to>
+            <course-title>Course Title</course-title>
+            <course-description>
+                <p>Course description. This can contain HTML.</p>
+            </course-description>
+            <grade>2:1</grade>
+        </section>
+    </education>
+    <photos>
+        <url>photo.jpg</url>
+        <url>photo.jpg</url>
+        <url>photo.jpg</url>
+    </photos>
+    <subscriptions>
+        <url>http://rssfeedurl.com</url>
+    </subscriptions>
+</profile>
