@@ -4,6 +4,8 @@
 
 # It's a free CV! You can view a live demo <a href="https://dvo.github.io/profile/">here</a>
 
+<p>UPDATE: Here is a link to the <a href="https://github.com/dvo/extension">extension</a></p>
+
 <p>The CV is stored as an XML file, although I'm open to switching to JSON-LD. However, in order to truely decouple of the data from the applications, I want users to be able to update their profile without the need for an interface.</p>
     
 <p>By ensuring that all data is stored and accessed in a standardized way, employers can search for potential employees, without the need for a middle man. As it currently stands, the XML file is read-only. However, I plan to introduce a browser plugin that will allow users to connect to their hosting provider and manage their data (and webmail) remotely. Why? Because then we can build powerful applications on top of this data, without locking the user into any specific platform.</p>
