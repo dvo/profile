@@ -177,7 +177,6 @@ section section {
     padding: 10px 20px;
     border-radius: 5px;
     display: block;
-    width: 120px;
     margin: auto;
     border: 1px solid #7c4dff;
     background: transparent;
@@ -264,6 +263,10 @@ td {
     box-sizing: border-box;
     animation: expandImg 1s;
 }
+textarea {
+    resize: vertical;
+    min-height: 200px;
+}
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -288,22 +291,6 @@ td {
 .fadeIn {
     -webkit-animation: 2.5s fadeIn;
     animation: 2.5s fadeIn;
-}
-.news-container ul li:nth-of-type(odd) {
-    -webkit-animation: flipLeft 1 1s ease-out;
-    -moz-animation: flipLeft 1 1s ease-out;
-    -ms-animation: flipLeft 1 1s ease-out;
-    -o-animation: flipLeft 1 1s ease-out;
-    animation: flipLeft 1 1s ease-out;
-    opacity: 1!important
-}
-.news-container ul li:nth-of-type(even) {
-    -webkit-animation: flipRight 1 1s ease-out;
-    -moz-animation: flipRight 1 1s ease-out;
-    -ms-animation: flipRight 1 1s ease-out;
-    -o-animation: flipRight 1 1s ease-out;
-    animation: flipRight 1 1s ease-out;
-    opacity: 1!important
 }
 
 /*** not currently used - may be removed *****/
@@ -548,4 +535,136 @@ td {
         transform: translateZ(0);
         opacity: 1
     }
+}
+
+/****** from framwork - need to clean up *******/
+
+.form-control {
+    box-shadow: 0 0 15px rgb(50, 57, 97, 0.5);
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fff;
+    background: transparent;
+    background-image: none;
+    border: 1px solid #323961;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input,
+textarea,
+select,
+button,
+details summary {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid #7c4dff;
+    box-shadow: 0 0 15px rgb(124, 77, 255, 0.4), 0 0 15px rgb(124, 77, 255, 0.4) inset;
+}
+summary:focus {
+    border-top: 1px solid #7c4dff;
+    border-bottom: 1px solid #7c4dff;
+    box-shadow: 0 0 15px rgb(124, 77, 255, 0.4), 0 0 15px rgb(124, 77, 255, 0.4) inset;
+}
+select option {
+    color: #7c4dff;
+}
+input[type="checkbox"] {
+    vertical-align: middle;
+    margin: 0;
+    box-shadow: 0 0 15px #495075;
+}
+
+/****************** BUTTONS ********************/
+
+.btn,
+.btn-small {
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn {
+    padding: 6px 12px;
+}
+.btn-small {
+    padding: 4px 8px;
+}
+.btn-red {
+    border: 1px solid #dd4b39;
+    box-shadow: 0 0 15px rgb(221, 75, 57, 0.4), 0 0 15px rgb(221, 75, 57, 0.4) inset;
+    color: #dd4b39;
+    background: transparent;
+}
+.btn-red:hover {
+    box-shadow: 0 0 10px rgb(221, 75, 57, 1), 0 0 10px rgb(221, 75, 57, 0.2) inset;
+}
+.btn-blue {
+    border: 1px solid #7c4dff;
+    background: transparent;
+    box-shadow: 0 0 15px rgb(124, 77, 255, 0.4), 0 0 15px rgb(124, 77, 255, 0.4) inset;
+    color: #7c4dff;
+}
+.btn-blue:hover {
+    box-shadow: 0 0 10px rgb(124, 77, 255, 1), 0 0 10px rgb(124, 77, 255, 0.2) inset;
+}
+.btn-yellow {
+    box-shadow: 0 0 15px rgb(224, 142, 11, 0.4), 0 0 15px rgb(224, 142, 11, 0.4) inset;
+    border: 1px solid #e08e0b;
+    background: transparent;
+    color: #e08e0b;
+}
+.btn-yellow:hover {
+    box-shadow: 0 0 10px rgb(224, 142, 11, 1), 0 0 10px rgb(224, 142, 11, 0.2) inset;
+}
+.btn-green {
+    background-color: transparent;
+    border: 1px solid #008d4c;
+    box-shadow: 0 0 15px rgb(0, 141, 76, 0.4), 0 0 15px rgb(0, 141, 76, 0.4) inset;
+    color: #008d4c;
+}
+.btn-green:hover {
+    box-shadow: 0 0 10px rgb(0, 141, 76, 1), 0 0 10px rgb(0, 141, 76, 0.2) inset;
+}
+.btn-dark {
+    background: transparent;
+    border: 1px solid #323961;
+    box-shadow: 0 0 15px rgb(50, 57, 97, 0.3), 0 0 15px rgb(50, 57, 97, 0.3) inset;
+    color: #fff;
+}
+.btn-align-center {
+    margin: auto;
+    display: block;
+}
+.btn span {
+    margin-left: 10px;
+}
+button .fa {
+    text-shadow: none;
+}
+.full-width {
+    width: 100%;
 }

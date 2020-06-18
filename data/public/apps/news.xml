@@ -1,0 +1,5 @@
+<app>
+    <category>News</category>
+    <url>http://news.localhost/news-feed/</url>
+    <user>http://bob.localhost/bob/</user>
+</app>

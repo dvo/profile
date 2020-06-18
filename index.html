@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOUvdgDlL3YA5S92AOUvdgDlL3YA5S92AOUvdgDlL3YA5S92AOUvdgDlL3YA5S92AOUvdgDlL3YA5S92AOUvdgDlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlL3YA5S93/OUvd/zlL3f85S93/OUvd/zlL3f85S92AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5S92AOUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvdgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOUvdgDlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlL3YA5S93/OUvd/zlL3f85S93/OUvd/zlL3f85S92AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5S92AOUvd/zlL3f85S93/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOUvdgDlL3f85S93/OUvd/zlL3b85S92/OUvdvzlL3b85S92/OUvdvzlL3b85S92/OUvdvzlL3b85S92/OUvdvzlL3d85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f85S93/OUvd/zlL3f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAP/wAAAAAAAAAAAAAAAAAAAAAAAA//8AAA==" rel="icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -15,6 +15,7 @@
     <script src="index.js"></script>
     <script>
         $(document).ready(function() {
+
             let urlParams = new URLSearchParams(window.location.search);
             let page = urlParams.get('page');
             if (!page) page = 'home';
@@ -32,17 +33,8 @@
                 $(`#${page}`).show();
             });
 
-            $(".news-container").rss("http://www.recruiter.com/feed/career.xml", {
+            /*$(".news-container").rss("http://www.recruiter.com/feed/career.xml", {
                 limit: 3
-            });
-
-            /*$.ajax({
-                type: "GET",
-                url: "https://dvo.github.io/profile/profile.xml",
-                dataType: "xml",
-                success: async function(xml) {
-                    console.log(xml);
-                }
             });*/
         });
 
@@ -65,8 +57,8 @@
                     <div><i class="fa fa-image"></i></div>PHOTOS</button>
             </div>
             <div>
-                <button data-page="news" class="news link">
-                    <div><i class="fa fa-rss"></i></div>NEWS</button>
+                <button data-page="contact" class="contact link">
+                    <div><i class="fa fa-envelope"></i></div>CONTACT</button>
             </div>
         </nav>
         <div id="home" class="page center fadeIn">
@@ -85,9 +77,9 @@
                 <div class="role flip-right"></div>
                 <div class="blue-line"></div>
                 <div class="spacer-30px"></div>
-                <button class="glow link" data-page="cv">ENTER</button>
+                <button id="sync" class="glow">CONNECT</button>
                 <div class="spacer-30px"></div>
-                <div class="flip-left">Get your free CV <a target="_blank" href="https://github.com/dvo/profile">here</a> | <a target="_blank" href="profile.xml">profile.xml</a></div>
+                <div class="flip-left">Get your free CV <a target="_blank" href="https://github.com/dvo/profile">here</a> | <a target="_blank" href="/data/public/profile.xml">profile.xml</a></div>
             </section>
         </div>
 
@@ -149,11 +141,15 @@
             <section class="photos-container">
             </section>
         </div>
-        <div id="news" class="page fadeIn" style="display:none">
+        <div id="contact" class="page fadeIn" style="display:none">
             <section>
-                <p class="center">Each profile will have a button which you can click on to subscribe. This section will display all of the RSS/Atom feeds that you are subscribed to.</p>
+                <input id="from" class="form-control" placeholder="Email address...">
                 <div class="spacer-15px"></div>
-                <div class="news-container"></div>
+                <input id="subject" class="form-control" placeholder="Subject...">
+                <div class="spacer-15px"></div>
+                <textarea id="message" class="form-control" placeholder="Please enter your message..."></textarea>
+                <div class="spacer-15px"></div>
+                <button id="send" class="btn btn-yellow full-width"><span style="margin-right:8px;">SEND</span><i class="fa fa-paper-plane"></i></button>
             </section>
         </div>
     </div>
