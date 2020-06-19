@@ -23,19 +23,21 @@
             $(`.${page}`).addClass('active');
             $('.page').hide();
             $(`#${page}`).show();
+            var url = window.location.href;
+            url = url.split('?')[0];
             $(document).on('click touchstart', '.link', function(e) {
                 e.preventDefault;
                 page = this.dataset.page;
-                window.history.pushState(`?page=${page}`, "Title", `?page=${page}`);
+                if (page === 'home') {
+                    window.history.replaceState(null, null, window.location.pathname);
+                } else {
+                    window.history.pushState({}, document.title, `?page=${page}`);
+                }
                 $('nav').find('.active').removeClass('active');
                 $(`.${page}`).addClass('active');
                 $('.page').hide();
                 $(`#${page}`).show();
             });
-
-            /*$(".news-container").rss("http://www.recruiter.com/feed/career.xml", {
-                limit: 3
-            });*/
         });
 
     </script>
@@ -77,7 +79,7 @@
                 <div class="role flip-right"></div>
                 <div class="blue-line"></div>
                 <div class="spacer-30px"></div>
-                <button id="sync" class="glow">CONNECT</button>
+                <button class="glow cv link" data-page="cv">ENTER</button>
                 <div class="spacer-30px"></div>
                 <div class="flip-left">Get your free CV <a target="_blank" href="https://github.com/dvo/profile">here</a> | <a target="_blank" href="/data/public/profile.xml">profile.xml</a></div>
             </section>

@@ -1,25 +1,6 @@
 $(document).ready(function () {
-    let laserExtensionId = "cblibajlakbngnlhjikkphndnnibjbgf";
-    let port = chrome.runtime.connect(laserExtensionId);
-
-    $('#sync').click(function () {
-        $.ajax({
-            type: "GET",
-            url: "data/public/profile.xml",
-            dataType: "xml",
-            success: async function (xml) {
-                port.postMessage({
-                    type: 'sync',
-                    url: $(xml).find("profile-url").text()
-                });
-                port.onMessage.addListener(function (res) {
-                    if (res.type === "sync") {
-                        alert('You are are now synced with this user');
-                    }
-                });
-            }
-        });
-    });
+    //let laserExtensionId = "cblibajlakbngnlhjikkphndnnibjbgf";
+    //let port = chrome.runtime.connect(laserExtensionId);
 
     $('#send').on('click', function () {
         let from = $('#from').val();
@@ -31,9 +12,9 @@ $(document).ready(function () {
             message: msg
         }).done(function () {
             $('#message').val("Cheers! Unless you're a spammer, or someone I don't like, I'll get back to your ASAP!");
-            port.postMessage({
+            /*port.postMessage({
                 type: 'count-messages'
-            })
+            })*/
         });
     });
 
@@ -68,18 +49,18 @@ $(document).ready(function () {
 
             var imgPreload = new Image();
             $(imgPreload).attr({
-                src: 'data/public/' + photo
+                src: 'data/public/photos/' + photo
             });
 
             //check if the image is already loaded (cached):
             if (imgPreload.complete || imgPreload.readyState === 4) {
-                $('.profile-photo').html(`<img src="data/public/${photo}">`);
+                $('.profile-photo').html(`<img src="data/public/photos/${photo}">`);
             } else {
                 $(imgPreload).on('load', function (response, status, xhr) {
                     if (status == 'error') {
                         console.log('image could not be loaded');
                     } else {
-                        $('.profile-photo').html(`<img src="data/public/${photo}">`);
+                        $('.profile-photo').html(`<img src="data/public/photos/${photo}">`);
                     }
                 });
             }
@@ -114,7 +95,7 @@ $(document).ready(function () {
 
             let photos = $(xml).find("photos");
             photos.children().each(function () {
-                $('.photos-container').append(`<img class="fadeIn" src="data/public/${$(this).text()}" />`);
+                $('.photos-container').append(`<img class="fadeIn" src="data/public/photos/${$(this).text()}" />`);
             });
         }
     });
@@ -124,7 +105,6 @@ $(document).ready(function () {
         url: "data/public/cv.xml",
         dataType: "xml",
         success: async function (xml) {
-
             let skills = $(xml).find("skills");
             skills.children().each(async function () {
                 $('.skills').append(`<li>${$(this).text()}</li>`);
