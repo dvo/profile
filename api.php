@@ -17,45 +17,6 @@ if(isset($_POST['post'])){
     $xml->save($fileName);
     }
 }
-
-if(isset($_POST['comment'])){
-    $password = md5($_POST['password']);
-    $xml = new SimpleXMLElement('data/private/user.xml', 0, true);
-    if ($password == $xml->password) {
-    $comments = simplexml_load_file('data/public/comments.xml');
-    $comment = $comments->addChild('comment');
-    $comment->addChild('id', $_POST['id']);
-    $comment->addChild('url', $_POST['url']);
-    $comment->addChild('body', $_POST['comment']);
-    $comment->addChild('user', $_POST['user']);        
-    file_put_contents('data/public/comments.xml', $comments->asXML());
-    // format the xml   
-    $doc = new DOMDocument('1.0');
-    $doc->preserveWhiteSpace = false;
-    $doc->load('data/public/comments.xml');
-    $doc->formatOutput = true;
-    file_put_contents('data/public/comments.xml', $doc->saveXML());
-    }
-}
-if(isset($_POST['post'])){
-    $password = md5($_POST['password']);
-    $xml = new SimpleXMLElement('data/private/user.xml', 0, true);
-    if ($password == $xml->password) {
-    $posts = simplexml_load_file('data/public/posts.xml');
-    $post = $posts->addChild('post');
-    $post->addChild('id', $_POST['id']);
-    $post->addChild('url', $_POST['url']);
-    $post->addChild('body', $_POST['post']);
-    $post->addChild('user', $_POST['user']);        
-    file_put_contents('data/public/posts.xml', $posts->asXML());
-    // format the xml   
-    $doc = new DOMDocument('1.0');
-    $doc->preserveWhiteSpace = false;
-    $doc->load('data/public/posts.xml');
-    $doc->formatOutput = true;
-    file_put_contents('data/public/posts.xml', $doc->saveXML());
-    }
-}
 if(isset($_POST['change'])){
     $old = md5($_POST['o_password']);
     $new = md5($_POST['n_password']);
@@ -99,65 +60,4 @@ if(isset($_POST['getMail'])){
     echo $inbox;
     }
 }
-
-if(isset($_POST['reaction'])){
-    $password = md5($_POST['password']);
-    $xml = new SimpleXMLElement('data/private/user.xml', 0, true);
-    if ($password == $xml->password) {
-    $likes = simplexml_load_file('data/public/likes.xml');
-    $exists = false;
-    foreach ($likes->item as $item)
-    {
-        if ($item->url == $_POST['url'])
-        {
-            $exists = true;
-            if ($_POST['type'] == 'like'){
-               $item->liked = 'true';
-            }
-            if ($_POST['type'] == 'dislike'){
-                $item->liked = 'false';
-            }
-            if ($_POST['type'] == 'undo'){
-                unset($item[0]);
-            }
-        }
-    }    
-    
-    if (!$exists){
-    $like = $likes->addChild('item');
-    $like->addChild('url', $_POST['url']);
-        if ($_POST['type'] == 'like'){
-            $like->addChild('liked', 'true');
-        }
-        if ($_POST['type'] == 'dislike'){
-            $like->addChild('liked', 'false');
-        } 
-    }
-        
-    file_put_contents('data/public/likes.xml', $likes->asXML());
-    // format the xml   
-    $doc = new DOMDocument('1.0');
-    $doc->preserveWhiteSpace = false;
-    $doc->load('data/public/likes.xml');
-    $doc->formatOutput = true;
-    file_put_contents('data/public/likes.xml', $doc->saveXML());
-    }
-}
-
-if(isset($_POST['sync'])){
-    $password = md5($_POST['password']);
-    $xml = new SimpleXMLElement('data/private/user.xml', 0, true);
-    if ($password == $xml->password) {
-    $peers = simplexml_load_file('data/public/peers.xml');
-    $peer = $peers->addChild('url', $_POST['url']);
-    file_put_contents('data/public/peers.xml', $peers->asXML());
-    // format the xml   
-    $doc = new DOMDocument('1.0');
-    $doc->preserveWhiteSpace = false;
-    $doc->load('data/public/peers.xml');
-    $doc->formatOutput = true;
-    file_put_contents('data/public/peers.xml', $doc->saveXML());
-    }
-}
-
 ?>
