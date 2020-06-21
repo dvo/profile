@@ -23,8 +23,6 @@
             $(`.${page}`).addClass('active');
             $('.page').hide();
             $(`#${page}`).show();
-            var url = window.location.href;
-            url = url.split('?')[0];
             $(document).on('click touchstart', '.link', function(e) {
                 e.preventDefault;
                 page = this.dataset.page;
