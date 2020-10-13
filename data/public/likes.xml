@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<likes>
+  <item>
+    <url>http://localhost:8000/</url>
+    <type>like</type>
+  </item>
+</likes>
