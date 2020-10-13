@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
-<posts>
-  <post>
-    <id>1602513899906</id>
-    <url>http://localhost:8000/</url>
-    <body>Hello world. This time im really Bob. And this is my first post!</body>
-  </post>
-  <post>
-    <id>1602522894964</id>
-    <url>https://www.google.co.uk/</url>
-    <body>Hi Google. You suck! Yes you do!</body>
-  </post>
-  <post>
-    <id>1602537696388</id>
-    <url>http://localhost/bob/</url>
-    <body>Hi Bob. Good to see you here!</body>
-  </post>
-</posts>
+    <posts>
+        <post>
+            <id>1602513899906</id>
+            <url>http://localhost:8000/</url>
+
+            <body>Hello world. This time I really am Bob. And this is my first post!</body>
+        </post>
+        <post>
+            <id>1602522894964</id>
+            <url>https://www.google.co.uk/</url>
+
+            <body>Hi Google. Testing testing 123456</body>
+        </post>
+        <post>
+            <id>1602537696388</id>
+            <url>http://localhost/bob/</url>
+
+            <body>Hello me. Good to see you here!</body>
+        </post>
+    </posts>
