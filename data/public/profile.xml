@@ -1,31 +1,28 @@
 <profile>
     <about>
         <p>
-            Hi! Thanks for stopping by. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-            This is another paragraph. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+Hi. Thanks for stopping by. I have worked in IT for many years and have decided to pursue a career path that would allow me to focus more on my own creative endeavours. 
         </p>
     </about>
     <profile-url></profile-url>
     <photo-url>biopic.png</photo-url>
     <name>Glen Simister</name>
-    <role>Front-End Developer</role>
-    <dob>01/10/1981</dob>
+    <role>Musician  / Web Developer / Innovator</role>
+    <dob>10/08/1979</dob>
     <gender>Male</gender>
     <address>
-            <post-code>XYZ123</post-code>
-            <city>Exeter</city>
+            <post-code>TQ5</post-code>
+            <city>Brixham</city>
             <region>Devon</region>
             <country>UK</country>
         </address>
-    <phone>+44 7738 111111</phone>
-    <email>bob@mail.com</email>
-    <website>http://website.com</website>
-    <employment-status>Employed</employment-status>
+    <phone>+44 07561 179745</phone>
+    <email>glen_simister (at) yahoo.co.uk</email>
+    <website>N/A</website>
+    <employment-status>Unemployed</employment-status>
     <photos>
-        <url>photo.jpg</url>
-        <url>photo.jpg</url>
-        <url>photo.jpg</url>
+        <url>biopic.png</url>
+        <url>biopic.png</url>
+        <url>biopic.png</url>
     </photos>
 </profile>
